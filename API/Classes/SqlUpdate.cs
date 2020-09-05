@@ -14,33 +14,52 @@ namespace API.Classes
 	public class SqlUpdate
 	{
 		private SqlConnection conn;
-		public SqlUpdate(string connStr)
+		private string query;
+		private T t;
+
+		public SqlUpdate(string connStr, string query)
 		{
 			this.conn = new SqlConnection(connStr);
+			this.query = query;
 		}
 
-		public List<T> Updates<T>(string query)
+		public List<T> Updates<T>()
 		{
-			var messages = new List<T>();
+			var list = new List<T>();
 			using (var cmd = new SqlCommand(query, conn))
 			{
 				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 				var dependency = new SqlDependency(cmd);
-				SqlDependency.Start(conn.ConnectionString);
 				dependency.OnChange += new OnChangeEventHandler(dependency_OnChange);
 				DataSet data = new DataSet();
 				adapter.Fill(data);
 				DataTable table = data.Tables[0];
 				SqlDeserializer deserializer = new SqlDeserializer(table);
-				messages = deserializer.Get<T>();
+				list = deserializer.Get<T>();
 			}
-			return messages;
+			return list;
+		}
+
+		public List<T> Get<T>(string query)
+		{
+			var list = new List<T>();
+			using (var cmd = new SqlCommand(query, conn))
+			{
+				SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+				DataSet data = new DataSet();
+				adapter.Fill(data);
+				DataTable table = data.Tables[0];
+				SqlDeserializer deserializer = new SqlDeserializer(table);
+				list = deserializer.Get<T>();
+			}
+			return list;
 		}
 
 		void dependency_OnChange(object sender, SqlNotificationEventArgs e)
 		{
-			if (e.Type == SqlNotificationType.Change)
+			if (e.Type == SqlNotificationType.Change && e.Info == SqlNotificationInfo.Update)
 				MonitorHub.SendMessages();
+			Updates<>();
 		}
 
 	}

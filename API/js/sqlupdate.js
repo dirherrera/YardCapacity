@@ -10,9 +10,9 @@ $(function () {
 
 	$.connection.hub.start().done(() => {
 		console.log('connection start');
+		getData();
 	}).fail((error) => {
 		console.log(error);
-		getData();
 	});
 
 });

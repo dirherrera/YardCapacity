@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.Http.Description;
@@ -18,9 +19,12 @@ namespace API.Controllers
         {
             int yardId = Convert.ToInt32(HttpContext.Request["yardid"]);
 
-            YardCapacityDBContext db = new YardCapacityDBContext();
-
-            Yard yard = db.Yard.SingleOrDefault(m => m.YardId == yardId);
+            List<Yard> yards = new List<Yard>();
+            string connStr = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
+            SqlUpdate update = new SqlUpdate(connStr);
+            string query = $"SELECT * FROM Yard WHERE YardId = {yardId}";
+            yards = update.Get<Yard>(query);
+            Yard yard = yards.Find(y => y.YardId == yardId);
 
             ViewBag.yard = (yard != null) ? yard : new Yard();
 
@@ -33,6 +37,7 @@ namespace API.Controllers
 		{
             List<Yard> yards = new List<Yard>();
             string connStr = ConfigurationManager.ConnectionStrings["SqlConnectionString"].ConnectionString;
+            SqlDependency.Start(connStr);
             SqlUpdate update = new SqlUpdate(connStr);
             string query = $"SELECT * FROM Yard WHERE YardId = {id}";
             yards = update.Updates<Yard>(query);
