@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Models.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'YardCapacity.dbo.Yard' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Yard">
+    <Key>
+      <PropertyRef Name="YardId" />
+      <PropertyRef Name="Yard" />
+      <PropertyRef Name="max_equipment" />
+      <PropertyRef Name="max_units" />
+      <PropertyRef Name="cur_equipment" />
+      <PropertyRef Name="cur_units" />
+      <PropertyRef Name="update" />
+    </Key>
+    <Property Name="YardId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Yard" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="max_equipment" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="max_units" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="cur_equipment" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="cur_units" Type="varchar" MaxLength="4" Nullable="false" />
+    <Property Name="update" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="ModelsStoreContainer">
+    <EntitySet Name="Yard" EntityType="Self.Yard" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Yard].[YardId] AS [YardId], 
+    [Yard].[Yard] AS [Yard], 
+    [Yard].[max_equipment] AS [max_equipment], 
+    [Yard].[max_units] AS [max_units], 
+    [Yard].[cur_equipment] AS [cur_equipment], 
+    [Yard].[cur_units] AS [cur_units], 
+    [Yard].[update] AS [update]
+    FROM [dbo].[Yard] AS [Yard]</DefiningQuery>
+    </EntitySet>
+  </EntityContainer>
+</Schema>

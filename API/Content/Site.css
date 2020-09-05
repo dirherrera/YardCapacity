@@ -1,0 +1,106 @@
+﻿    
+    
+    #app{
+        
+    }
+
+    /***
+        Table
+    */
+    .table{
+        display: table;
+        height: 100%;
+        width: 100%;
+        table-layout: fixed;
+        margin: 0px;
+    }
+    .table div {
+        display: table-row
+    }
+    .table div {
+        display: table-row
+    }
+    .table div div {
+        display: table-cell;
+        vertical-align: top;
+    }
+    .center {
+        text-align: center;
+        vertical-align: top;
+    }
+
+
+    /***
+        Header
+    */
+    #header{
+        position: absolute;
+        height: 12em;
+        top: 0em;
+        right: 0em;
+        left: 0em;
+        background-color: #0e45a8;
+    }
+    #header h1{
+        font-size: 8em;
+        text-align: center;
+        color: #FFF;
+    }
+
+
+
+    /***
+        Content
+    */
+    #content {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 20em;
+        right: 0em;
+        bottom: 20em;
+        left: 0em;
+        padding: 0 4em;
+        vertical-align: top;
+    }
+    #content .box{
+        width: 50em;
+    }
+    #content h2 {
+        font-size: 4em;
+    }
+    #content h1 {
+        font-size: 5em;
+        font-weight: bold;
+    }
+    #content .table div{
+
+    }
+
+
+
+    /***
+        Footer
+    */
+    #footer {
+        position: absolute;
+        height: 10em;
+        right: 0em;
+        bottom: 0em;
+        left: 0em;
+        padding: 0 8em;
+        background-color: #95c3e5;
+    }
+    #footer h3{
+        font-size: 2em;
+    }
+
+    /***
+        small screens
+    */
+    @media only screen and (max-width: 800px){
+        #header h1 {
+            font-size:5em;
+        }
+    }

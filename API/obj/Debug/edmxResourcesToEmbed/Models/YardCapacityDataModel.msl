@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelsStoreContainer" CdmEntityContainer="YardCapacityDBContext">
+    <EntitySetMapping Name="Yard">
+      <EntityTypeMapping TypeName="Models.Yard">
+        <MappingFragment StoreEntitySet="Yard">
+          <ScalarProperty Name="YardId" ColumnName="YardId" />
+          <ScalarProperty Name="Yard1" ColumnName="Yard" />
+          <ScalarProperty Name="max_equipment" ColumnName="max_equipment" />
+          <ScalarProperty Name="max_units" ColumnName="max_units" />
+          <ScalarProperty Name="cur_equipment" ColumnName="cur_equipment" />
+          <ScalarProperty Name="cur_units" ColumnName="cur_units" />
+          <ScalarProperty Name="update" ColumnName="update" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
