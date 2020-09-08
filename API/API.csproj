@@ -192,7 +192,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Classes\DBNotificatoion.cs" />
+    <Compile Include="Classes\SqlDependencyService.cs" />
     <Compile Include="Library\IDataTable.cs" />
     <Compile Include="Library\DAO.cs" />
     <Compile Include="Controllers\HomeController.cs" />

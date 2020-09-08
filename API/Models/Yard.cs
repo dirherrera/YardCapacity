@@ -16,7 +16,7 @@ namespace API.Models
     {
         [System.ComponentModel.DataAnnotations.Key]
         public int YardId { get; set; }
-        public string Yard1 { get; set; }
+        public string Name { get; set; }
         public string max_equipment { get; set; }
         public string max_units { get; set; }
         public string cur_equipment { get; set; }

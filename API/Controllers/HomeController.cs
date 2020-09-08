@@ -23,25 +23,35 @@ namespace API.Controllers
             int yardId = Convert.ToInt32(HttpContext.Request["yardid"]);
             
             
-            string query = $"SELECT * FROM Yard WHERE YardId = {yardId}";
+            string query = $"SELECT [YardId],[Name],[cur_equipment],[cur_units],[max_equipment],[max_units],[update] FROM Yard WHERE YardId = {yardId}";
             SqlConnection conn = new SqlConnection(connStr);
             SqlCommand cmd = new SqlCommand(query, conn);
-
-            SqlDependency.Start(connStr);
-            SqlDependency dependency = new SqlDependency(cmd);
-            dependency.OnChange += new OnChangeEventHandler(DBNotificatoion.Notify);
-
             conn.Open();
-
             List<Yard> yards = IDataTable.To<Yard>(DAO.Exec(cmd));
+            conn.Close();
+
+            SqlDependencyService service = new SqlDependencyService();
+            service.Config();
+
             Yard yard = yards.Find(y => y.YardId == yardId);
-            
             
             ViewBag.yard = (yard != null) ? yard : new Yard();
             ViewBag.Title = $"Yarda {yard}";
             
             
             return View();
+        }
+
+        public JsonResult GetUpdate(int id)
+		{
+            string query = $"SELECT * FROM Yard WHERE YardId = {id}";
+            SqlConnection conn = new SqlConnection(connStr);
+            SqlCommand cmd = new SqlCommand(query, conn);
+            conn.Open();
+            List<Yard> yards = IDataTable.To<Yard>(DAO.Exec(cmd));
+            conn.Close();
+            Yard yard = yards.Find(y => y.YardId == id);
+            return Json(yard, JsonRequestBehavior.AllowGet);
         }
 
     }

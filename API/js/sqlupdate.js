@@ -3,13 +3,11 @@ $(function () {
 
 	var update = $.connection.monitorHub;
 	
-	update.client.updateMessages = (nb, l) => {
+	update.client.send = (nb, l) => {
 		getData();
-		
 	}
 
 	$.connection.hub.start().done(() => {
-		console.log('connection start');
 		getData();
 	}).fail((error) => {
 		console.log(error);
@@ -30,7 +28,16 @@ function getData() {
 		type: 'GET',
 		dataType: 'json'
 	}).done((res) => {
-		var json = res;
-		console.log(json);
+		UpdateMonitor(res);
 	})
+}
+
+function UpdateMonitor(yard) {
+	$("#yard").text(yard.Name);
+	$("#max_equipment").text(yard.max_equipment);
+	$("#cur_equipment").text(yard.cur_equipment);
+	$("#max_units").text(yard.max_units);
+	$("#cur_units").text(yard.cur_units);
+	$("#update").text(yard.update.toDate().format());
+	setTimeout(getData, 60000);
 }

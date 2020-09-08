@@ -10,11 +10,11 @@ namespace API
     public class MonitorHub : Hub
     {
 
-        [HubMethodName("sendMessages")]
-        public static void SendMessages()
+        [HubMethodName("send")]
+        public static void Send(string name, string message)
         {
             IHubContext context = GlobalHost.ConnectionManager.GetHubContext<MonitorHub>();
-            context.Clients.All.updateMessages();
+            context.Clients.All.send();
         }
     }
 }
