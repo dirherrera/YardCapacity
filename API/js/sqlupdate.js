@@ -2,10 +2,10 @@
 $(function () {
 
 	var update = $.connection.monitorHub;
-	console.log(update);
+	
 	update.client.updateMessages = (nb, l) => {
 		getData();
-		console.log(nb);
+		
 	}
 
 	$.connection.hub.start().done(() => {

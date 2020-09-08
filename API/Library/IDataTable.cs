@@ -8,15 +8,10 @@ using System.Web;
 
 namespace API.Classes
 {
-	public class SqlDeserializer
+	public class IDataTable
 	{
-		private DataTable table;
-		public SqlDeserializer(DataTable table)
-		{
-			this.table = table;
-		}
 
-		public List<T> Get<T>()
+		public static List<T> To<T>(DataTable table)
 		{
 			List<T> list = new List<T>();
 			PropertyInfo[] properties = typeof(T).GetProperties();

@@ -193,8 +193,15 @@ C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\System.Web.WebPages
 C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\System.Web.WebPages.Razor.xml
 C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\Antlr3.Runtime.pdb
 C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\obj\Debug\API.csprojAssemblyReference.cache
 C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\obj\Debug\API.csproj.CoreCompileInputs.cache
 C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\obj\Debug\API.csproj.CopyComplete
 C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\obj\Debug\API.dll
 C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\obj\Debug\API.pdb
+C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\Microsoft.Owin.Cors.dll
+C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\System.Web.Cors.dll
+C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\System.Web.Http.Cors.dll
+C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\System.Web.Http.Owin.dll
+C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\Microsoft.Owin.Cors.xml
+C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\System.Web.Http.Cors.xml
+C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\bin\System.Web.Http.Owin.xml
+C:\Users\Programador 2\Documents\GitHub\YardCapacity\API\obj\Debug\API.csprojAssemblyReference.cache
