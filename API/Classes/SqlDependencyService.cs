@@ -31,7 +31,7 @@ namespace API.Classes
 			using (SqlConnection conn = new SqlConnection(connStr))
 			{
 				conn.Open();
-				using (SqlCommand comm = new SqlCommand(@"SELECT [update] FROM Yard", conn))
+				using (SqlCommand comm = new SqlCommand(@"SELECT [update] FROM [dbo].Yard", conn))
 				{
 					comm.Notification = null;
 					SqlDependency dependency = new SqlDependency(comm);

@@ -39,5 +39,5 @@ function UpdateMonitor(yard) {
 	$("#max_units").text(yard.max_units);
 	$("#cur_units").text(yard.cur_units);
 	$("#update").text(yard.update.toDate().format());
-	setTimeout(getData, 60000);
+	//setTimeout(getData, 60000);
 }

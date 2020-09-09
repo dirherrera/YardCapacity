@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Caching;
 using System.Web.Http.Description;
 using System.Web.Mvc;
+using System.Web.WebPages;
 using API.Classes;
 using API.Models;
 using Microsoft.Ajax.Utilities;
@@ -36,7 +37,8 @@ namespace API.Controllers
             Yard yard = yards.Find(y => y.YardId == yardId);
             
             ViewBag.yard = (yard != null) ? yard : new Yard();
-            ViewBag.Title = $"Yarda {yard}";
+            string Name = (yard == null)?"":yard.Name;
+            ViewBag.Title = $"Yarda {Name}";
             
             
             return View();

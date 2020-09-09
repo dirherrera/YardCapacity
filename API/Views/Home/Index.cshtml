@@ -4,37 +4,35 @@
 	</div>
 	<div id="content">
 		<div class="box">
-			<div class="table">
-				<div>
-					<div></div>
-					<div><h2 class="center">Actual</h2></div>
-					<div><h2 class="center">Max</h2></div>
-				</div>
-				<div>
-					<div><h2>Equipos</h2></div>
-					<div><h1 class="center"><spam id="max_equipment">@ViewBag.yard.cur_equipment</spam></h1></div>
-					<div><h1 class="center"><spam id="cur_equipment">@ViewBag.yard.max_equipment</spam></h1></div>
-				</div>
-				<div>
-					<div><h2>Unidades</h2></div>
-					<div><h1 class="center"><spam id="max_units">@ViewBag.yard.cur_units</spam></h1></div>
-					<div><h1 class="center"><spam id="cur_units">@ViewBag.yard.max_units</spam></h1></div>
-				</div>
-			</div>
+			<table style="margin: 0 auto;">
+				<tr>
+					<th></th>
+					<th style="font-size: 3em;text-align:center;width: 15em;">Actual</th>
+					<th style="font-size: 3em;text-align:center;">Max</th>
+				</tr>
+				<tr>
+					<th style="font-size: 3em;text-align:right;">Equipos</th>
+					<th style="font-size: 14em;text-align:center;"><spam id="cur_equipment">@ViewBag.yard.max_equipment</spam></th>
+					<th style="font-size: 14em;text-align:center;"><spam id="max_equipment">@ViewBag.yard.cur_equipment</spam></th>
+				</tr>
+				<tr>
+					<th style="font-size: 3em;text-align:right;">Unidades</th>
+					<th style="font-size: 14em;text-align:center;"><spam id="cur_units">@ViewBag.yard.cur_units</spam></th>
+					<th style="font-size: 14em;text-align:center;"><spam id="max_units">@ViewBag.yard.max_units</spam></th>
+				</tr>
+			</table>
 		</div>
 	</div>
 	<div id="footer">
-		<div class="table">
-			<div>
-				<div><h3 class="center">Última Actualización</h3></div>
-				<div><h3 class="center">Fecha actual</h3></div>
-			</div>
-			<div>
-				<div><h3 class="center"><spam id="update">@ViewBag.yard.update.ToString("dd/MM/yyyy HH:mm:ss")</spam></h3></div>
-				<div>
-					<h3 id="clock" class="center"></h3>
-				</div>
-			</div>
-		</div>
+		<table style=" width: 50%;margin: 0 auto;">
+			<tr>
+				<th style="font-size: 2em;text-align:center;">Última Actualización</th>
+				<th style="font-size: 2em;text-align:center;">Fecha actual</th>
+			</tr>
+			<tr>
+				<th style="font-size: 2em;text-align:center;"><spam id="update">@ViewBag.yard.update.ToString("dd/MM/yyyy HH:mm:ss")</spam></th>
+				<th style="font-size: 2em;text-align:center;"><span id="clock"></span></th>
+			</tr>
+		</table>
 	</div>
 </div>

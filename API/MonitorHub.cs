@@ -14,7 +14,7 @@ namespace API
         public static void Send(string name, string message)
         {
             IHubContext context = GlobalHost.ConnectionManager.GetHubContext<MonitorHub>();
-            context.Clients.All.send();
+            context.Clients.All.send("push", name, message);
         }
     }
 }
